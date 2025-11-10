@@ -1,0 +1,37 @@
+﻿@page
+@model LoanSystem.Web.Pages.LoanRequests.IndexModel
+
+<h2>لیست درخواست‌های تسهیلات</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>مشتری</th>
+            <th>تسهیلات</th>
+            <th>وضعیت</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.LoanRequestEditDtoList)
+        {
+            <tr>
+                <td>@item.CustomerName</td>
+                <td>@item.FacilityName</td>
+                <td>@item.Status</td>
+            </tr>
+        
+        <tr>
+            <th>عملیات</th>
+
+            <td>
+                <a asp-page="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">جزئیات</a>
+                <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary">ویرایش</a>
+                <a asp-page="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">حذف</a>
+            </td>
+        </tr>
+        }
+
+    </tbody>
+</table>
+
+<a asp-page="Create" class="btn btn-primary">افزودن درخواست جدید</a>

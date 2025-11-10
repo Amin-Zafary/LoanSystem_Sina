@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>LoanSystem</title>
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+    <header>
+        <h1>LoanSystem</h1>
+        <nav>
+            <a href="/">Home</a> |
+            <a href="/FacilityGroups">Facility Groups</a> |
+            <a href="/Facilities">Facilities</a> |
+            <a href="/LoanRequests">Loan Requests</a>
+        </nav>
+    </header>
+    <main>
+        @RenderBody()
+    </main>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

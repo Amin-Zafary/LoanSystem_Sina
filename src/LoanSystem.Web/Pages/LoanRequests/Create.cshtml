@@ -1,0 +1,28 @@
+﻿
+@page
+@model LoanSystem.Web.Pages.LoanRequests.CreateModel
+
+<h2>ثبت درخواست تسهیلات جدید</h2>
+
+<form method="post">
+    <div class="mb-3">
+        <label asp-for="Input.CustomerId" class="form-label"></label>
+        <select asp-for="Input.CustomerId" asp-items="Model.Customers" class="form-select">
+            <option value="">-- انتخاب مشتری --</option>
+        </select>
+        <span asp-validation-for="Input.CustomerId" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Input.FacilityId" class="form-label"></label>
+        <select asp-for="Input.FacilityId" asp-items="Model.Facilities" class="form-select">
+            <option value="">-- انتخاب نوع تسهیلات --</option>
+        </select>
+        <span asp-validation-for="Input.FacilityId" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">ثبت درخواست</button>
+    <a asp-page="Index" class="btn btn-secondary">بازگشت</a>
+</form>
+
+

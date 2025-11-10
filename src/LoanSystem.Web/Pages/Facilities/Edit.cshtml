@@ -1,0 +1,12 @@
+@page "{id:guid}"
+@model LoanSystem.Web.Pages.Facilities.EditModel
+<h2>Edit Facility</h2>
+<form method="post">
+<input type="hidden" asp-for="Input.Id" />
+<div><label>Code</label><input asp-for="Input.Code" /></div>
+<div><label>Name</label><input asp-for="Input.Name" /></div>
+<div><label>FacilityGroupId (GUID)</label><input asp-for="Input.FacilityGroupId" /></div>
+<div><label>PaymentStages</label><input asp-for="Input.PaymentStages" type="number"/></div>
+<button type="submit">Save</button>
+</form>
+<a asp-page="Index">Back</a>

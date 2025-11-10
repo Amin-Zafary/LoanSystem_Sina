@@ -1,0 +1,15 @@
+@page
+@model LoanSystem.Web.Pages.FacilityGroups.IndexModel
+<h2>Facility Groups</h2>
+<p><a asp-page="Create">Create New</a></p>
+<table>
+<thead><tr><th>Name</th><th>Code</th><th>Interest</th><th>Repayment</th><th>Actions</th></tr></thead>
+<tbody>
+@foreach(var fg in Model.FacilityGroups){
+<tr>
+<td>@fg.Name</td><td>@fg.Code</td><td>@fg.InterestRate</td><td>@fg.RepaymentPeriodMonths</td>
+<td><a asp-page="Edit" asp-route-id="@fg.Id">Edit</a> | <a asp-page="Delete" asp-route-id="@fg.Id">Delete</a></td>
+</tr>
+}
+</tbody>
+</table>

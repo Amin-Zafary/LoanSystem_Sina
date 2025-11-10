@@ -1,0 +1,39 @@
+﻿@page "{id:guid}"
+@model LoanSystem.Web.Pages.LoanRequests.DetailsModel
+
+<h2>جزئیات درخواست تسهیلات</h2>
+
+<div class="card shadow-sm p-4 mt-3">
+    <dl class="row">
+        <dt class="col-sm-3">مشتری</dt>
+        <dd class="col-sm-9">@Model.LoanRequestEditDto.CustomerName</dd>
+
+        <dt class="col-sm-3">تسهیلات</dt>
+        <dd class="col-sm-9">@Model.LoanRequestEditDto.FacilityName</dd>
+
+        <dt class="col-sm-3">وضعیت</dt>
+        <dd class="col-sm-9">
+            @if (Model.LoanRequestEditDto.Status.ToString() == "Approved")
+            {
+                <span class="badge bg-success">تأیید شده</span>
+            }
+            else if (Model.LoanRequestEditDto.Status.ToString() == "Rejected")
+            {
+                <span class="badge bg-danger">رد شده</span>
+            }
+            else
+            {
+                <span class="badge bg-warning text-dark">در انتظار بررسی</span>
+            }
+        </dd>
+
+        <dt class="col-sm-3">تاریخ ثبت</dt>
+        <dd class="col-sm-9">@Model.LoanRequestEditDto.StatusChangedAt.ToString("yyyy/MM/dd HH:mm")</dd>
+    </dl>
+</div>
+
+<div class="mt-4">
+    <a asp-page="Edit" asp-route-id="@Model.LoanRequestEditDto.Id" class="btn btn-primary">ویرایش</a>
+    <a asp-page="Delete" asp-route-id="@Model.LoanRequestEditDto.Id" class="btn btn-danger">حذف</a>
+    <a asp-page="Index" class="btn btn-secondary">بازگشت</a>
+</div>

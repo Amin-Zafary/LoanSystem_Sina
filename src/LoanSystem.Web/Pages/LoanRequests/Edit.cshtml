@@ -1,0 +1,37 @@
+﻿@page "{id:guid}"
+@model LoanSystem.Web.Pages.LoanRequests.EditModel
+
+<h2>ویرایش وضعیت درخواست تسهیلات</h2>
+
+<form method="post">
+    <div class="mb-3">
+        <input type="hidden" asp-for="@Model.LoanRequestEditDto.Id" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">مشتری</label>
+        <input class="form-control" value="@Model.LoanRequestEditDto?.CustomerName" readonly />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">تسهیلات</label>
+        <input class="form-control" value="@Model.LoanRequestEditDto?.FacilityName?" readonly />
+    </div>
+
+
+    <div class="mb-3">
+        <label asp-for="LoanRequestEditDto.Status" class="form-label">وضعیت درخواست</label>
+        <select asp-for="LoanRequestEditDto.Status" asp-items="Model.StatusOptions" class="form-select"></select>
+        <span asp-validation-for="LoanRequestEditDto.Status" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">تاریخ آخرین تغییر</label>
+        <input class="form-control" value="@Model.LoanRequestEditDto?.StatusChangedAt" readonly />
+    </div>
+
+    <button type="submit" class="btn btn-success">ذخیره تغییرات</button>
+    <a asp-page="Index" class="btn btn-secondary">بازگشت</a>
+</form>
+
+

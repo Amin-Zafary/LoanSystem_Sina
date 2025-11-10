@@ -1,0 +1,26 @@
+﻿@page "{id:guid}"
+@model LoanSystem.Web.Pages.LoanRequests.DeleteModel
+
+<h2>حذف درخواست تسهیلات</h2>
+
+<div class="alert alert-danger mt-3">
+    <p>آیا مطمئن هستید که می‌خواهید این درخواست را حذف کنید؟</p>
+</div>
+
+<div class="card shadow-sm p-4">
+    <dl class="row">
+        <dt class="col-sm-3">مشتری</dt>
+        <dd class="col-sm-9">@Model.LoanRequestEditDto.CustomerName</dd>
+
+        <dt class="col-sm-3">تسهیلات</dt>
+        <dd class="col-sm-9">@Model.LoanRequestEditDto.FacilityName</dd>
+
+        <dt class="col-sm-3">وضعیت</dt>
+        <dd class="col-sm-9">@Model.LoanRequestEditDto.Status</dd>
+    </dl>
+</div>
+
+<form method="post" class="mt-4">
+    <button type="submit" class="btn btn-danger">بله، حذف شود</button>
+    <a asp-page="Index" class="btn btn-secondary">بازگشت</a>
+</form>
