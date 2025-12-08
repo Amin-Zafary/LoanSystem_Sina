@@ -1,12 +1,27 @@
+//using LoanSystem.Application.Commands;
+using LoanSystem.Application.Features.Commands;
+using LoanSystem.Application.Interfaces;
+using LoanSystem.Infrastructure.Persistence;
+using LoanSystem.Infrastructure.Repositories;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using LoanSystem.Infrastructure.Persistence;
-using Microsoft.EntityFrameworkCore;
-using LoanSystem.Application.Interfaces;
-using LoanSystem.Infrastructure.Repositories;
+
+//builder.Services.AddMediatR(typeof(CreateLoanRequestCommand).Assembly);
+
 
 var builder = WebApplication.CreateBuilder(args);
+
+
+// Add MediatR
+//builder.Services.AddMediatR(typeof(CreateLoanRequestCommand).Assembly);
+
+builder.Services.AddMediatR(cfg =>
+{
+    cfg.RegisterServicesFromAssembly(typeof(CreateLoanRequestCommand).Assembly);
+});
 
 // Add services
 builder.Services.AddRazorPages();
